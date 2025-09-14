@@ -7,10 +7,10 @@ const personajeSchema = new Schema({
     nivel: { type: Number, required: true},
     vida_actual: { type: Number, required: true},
     mana_actual: { type: Number, required: true},
-    jugador:{ type: Schema.Types.ObjectId, ref: "jugador"},
-    logros: [{type: Schema.Types.ObjectId, ref: "logro"}],
+    jugador:{ type: Schema.Types.ObjectId, ref: "player"},
+    logros: {type: Schema.Types.ObjectId, ref: "logro"},
     inventario: {type: Schema.Types.ObjectId, ref: "inventario"}
 
 })
 
-export const personajeModel = model("personaje", personajeSchema);
+export const personajeModel = model("personajes", personajeSchema);

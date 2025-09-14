@@ -11,4 +11,4 @@ const itemSchema = new Schema({
         poder_magico: {type: Number}
     }
 });
-export const itemModel = model("item", itemSchema);
+export const itemModel = model("items", itemSchema);
