@@ -18,7 +18,7 @@ export const createCharacter = async (req, res)=>{
         });
         const inventario = await inventarioModel.create({
             capacidad: 50,
-            personaje_id: newCharacter._id
+            personaje: newCharacter._id
         });
         const character = await personajeModel.findByIdAndUpdate(newCharacter._id,{
             inventario: inventario._id

@@ -1,10 +1,8 @@
 import { model, Model, Schema } from "mongoose";
 
 const inventarioSchema = new Schema({
-    personaje_id:{ type: Schema.Types.ObjectId, ref: "personaje"},
+    personaje:{ type: Schema.Types.ObjectId, ref: "personajes"},
     capacidad: { type: Number},
-    objetos:[{
-        objeto_id: {type: Schema.Types.ObjectId, ref: "item"}
-    }]
+    items:[{type: Schema.Types.ObjectId, ref: "items"}]
 })
 export const inventarioModel = model("inventarios", inventarioSchema);
