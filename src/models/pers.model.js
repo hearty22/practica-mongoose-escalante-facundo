@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-
+//nombre, raza, clase, nivel, vida_actual, mana_actual, jugador, logros, inventario
 const personajeSchema = new Schema({
     nombre:{ type: String, required: true},
     raza: { type: String, required: true},
@@ -7,9 +7,9 @@ const personajeSchema = new Schema({
     nivel: { type: Number, required: true},
     vida_actual: { type: Number, required: true},
     mana_actual: { type: Number, required: true},
-    jugador:{ type: Schema.Types.ObjectId, ref: "player"},
-    logros: {type: Schema.Types.ObjectId, ref: "logro"},
-    inventario: {type: Schema.Types.ObjectId, ref: "inventario"}
+    jugador:{ type: Schema.Types.ObjectId, ref: "jugadores"},
+    logros: {type: Schema.Types.ObjectId, ref: "logros"},
+    inventario: {type: Schema.Types.ObjectId, ref: "inventarios"}
 
 })
 

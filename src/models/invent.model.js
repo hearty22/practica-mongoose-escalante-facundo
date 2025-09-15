@@ -7,4 +7,4 @@ const inventarioSchema = new Schema({
         objeto_id: {type: Schema.Types.ObjectId, ref: "item"}
     }]
 })
-export const inventarioModel = model("inventario", inventarioSchema);
+export const inventarioModel = model("inventarios", inventarioSchema);

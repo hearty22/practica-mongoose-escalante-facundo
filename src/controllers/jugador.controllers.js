@@ -25,7 +25,7 @@ export const createPlayer = async (req, res)=>{
 };
 export const getallPlayers = async (req, res)=>{
     try {
-        const players = await jugadorModel.find().populate();
+        const players = await jugadorModel.find().populate("personajes");
         return res.status(200).json({
             ok: true,
             msg: "jugadores obtenidos con exito",
@@ -41,7 +41,7 @@ export const getallPlayers = async (req, res)=>{
 };
 export const getPlayer = async (req, res)=>{
     try {
-        const player = await jugadorModel.findById(req.params.id);
+        const player = await jugadorModel.findById(req.params.id).populate("personajes");
         return res.status(200).json({
             ok: true,
             msg: "jugador encontrado con exito",
@@ -63,7 +63,7 @@ export const updatePlayer = async (req, res)=>{
             email: email,
             contraseña: contraseña,
             nivel: nivel,
-            personajes: personajes
+            $push: {personajes: personajes}
         },{new: true});
         return res.status(200).json({
             ok: true,

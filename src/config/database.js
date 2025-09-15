@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export const dbConect = async ()=>{
     try {
         await mongoose.connect(process.env.DATABASE);
-        // await mongoose.connection.dropDatabase();
+        // await mongoose.connection.dropDatabase(process.env.DATABASE);
 
         console.log(`servidor conectado con la base de datos`);
 
