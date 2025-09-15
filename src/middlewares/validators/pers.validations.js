@@ -1,7 +1,6 @@
 import { body, param } from "express-validator";
 import { jugadorModel } from "../../models/jugador.model.js";
 import { personajeModel } from "../../models/pers.model.js";
-import { logroModel } from "../../models/logros.model.js";
 //nombre, raza, clase, nivel, vida_actual, mana_actual, jugador, logros, inventario
 export const createCharacterValidation =[
     body("nombre")
@@ -73,15 +72,7 @@ export const updateCharacterValidation = [
     .optional()
     .isInt().withMessage("el campo debe de ser un entero")
     ,
-    body("logros")
-    .optional()
-    .custom(async (value)=>{
-        const logro = await logroModel.findById(value)
-        if(!logro){
-            throw new Error("el logro no existe");
-            
-        }
-    })
+
     ,
     param("id")
     .custom(async (value)=>{

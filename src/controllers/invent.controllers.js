@@ -2,7 +2,7 @@ import { inventarioModel } from "../models/invent.model.js";
 
 export const getAllInventories = async (req, res)=>{
     try {
-        const inventarios = await inventarioModel.find().populate("personaje")
+        const inventarios = await inventarioModel.find().populate("personaje").populate("items")
         return res.status(200).json({
             ok: true,
             msg: "inventarios obtenidos con exito",
@@ -18,7 +18,7 @@ export const getAllInventories = async (req, res)=>{
 };
 export const getInventory = async (req, res)=>{
     try {
-        const inventory = await inventarioModel.findById(req.params.id).populate("personaje");
+        const inventory = await inventarioModel.findById(req.params.id).populate("personaje").populate("items");
         return res.status(200).json({
             ok: true,
             msg: "inventario obtenido correctamente",

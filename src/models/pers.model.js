@@ -8,7 +8,6 @@ const personajeSchema = new Schema({
     vida_actual: { type: Number, required: true},
     mana_actual: { type: Number, required: true},
     jugador:{ type: Schema.Types.ObjectId, ref: "jugadores"},
-    logros: {type: Schema.Types.ObjectId, ref: "logros"},
     inventario: {type: Schema.Types.ObjectId, ref: "inventarios"}
 
 })
